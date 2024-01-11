@@ -6,9 +6,12 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/02 17:45:47 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/11 17:11:18 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 typedef struct s_stack
 {
@@ -16,6 +19,4 @@ typedef struct s_stack
 	struct s_stack *next;
 } t_stack;
 
-t_stack a
-
-a.number = 5
+#endif

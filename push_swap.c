@@ -6,11 +6,14 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/02 17:46:48 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/10 13:24:56 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main (arg )
+#include <push_swap.h>
 
-t_stack a;
-t_stack b;
+int main(int argc, char **argv)
+{
+	t_stack a;
+	t_stack b;
+}
