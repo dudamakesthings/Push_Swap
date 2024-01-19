@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/10 13:22:51 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/19 13:36:58 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*new_node(int number)
 {
 	t_stack	*new_node;
 
-	new_node = (t_stack *)malloc(1 * sizeof(t_stack));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->number = number;
