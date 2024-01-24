@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:08:41 by edribeir      ########   odam.nl         */
+/*   Created: 2023/12/07 10:42:46 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/12/21 15:45:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include "./Libft/libft.h"
-# include "./Libft/ft_printf.h"
-//# include "./Libft/get_next_line.h"
+# include <string.h>
 
-typedef struct s_stack
-{
-	int	number;
-	struct s_stack *next;
-} t_stack;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-t_stack	*new_node(int number);
-t_stack	*add_number_front(t_stack *actual_number, int new_number);
+size_t	get_length(const char *str);
+char	*combine_strs(char *p_line, char *buf);
+char	*ft_strchr(char *str, int ch);
+char	*get_next_line(int fd);
 
 #endif

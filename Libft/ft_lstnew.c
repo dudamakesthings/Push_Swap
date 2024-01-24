@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   stack_functions.c                                  :+:    :+:            */
+/*   ft_lstnew.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:07:52 by edribeir      ########   odam.nl         */
+/*   Created: 2023/11/03 09:58:17 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/11/03 10:07:25 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*new_node(int number)
+t_list	*ft_lstnew(void *content)
 {
-	t_stack	*new_node;
+	t_list	*new_node;
 
-	new_node = (t_stack *)malloc(sizeof(t_stack));
+	new_node = (t_list *)malloc(1 * sizeof(t_list));
 	if (new_node == NULL)
 		return (NULL);
-	new_node->number = number;
+	new_node->content = content;
 	new_node->next = NULL;
 	return (new_node);
 }
-t_stack	*add_number_front(t_stack *actual_number, int new_number)
-{
-	t_stack *current_number;
 
-	current_number = new_node(new_number);
-	current_number->next = actual_number;
-	return (current_number);
-}
+// int main()
+// {
+// 	char *str = "my starter pokemon is squirtle";
+
+// 	struct s_list *new; // same as t_list new;
+
+// 	new = ft_lstnew(str);
+// 	printf("%s\n", (char *)new->content);
+// }

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_lstsize.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:08:41 by edribeir      ########   odam.nl         */
+/*   Created: 2023/11/03 10:07:03 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/11/03 10:28:31 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./Libft/libft.h"
-# include "./Libft/ft_printf.h"
-//# include "./Libft/get_next_line.h"
+#include "libft.h"
 
-typedef struct s_stack
+int	ft_lstsize(t_list *lst)
 {
-	int	number;
-	struct s_stack *next;
-} t_stack;
+	int	i;
 
-t_stack	*new_node(int number);
-t_stack	*add_number_front(t_stack *actual_number, int new_number);
-
-#endif
+	i = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

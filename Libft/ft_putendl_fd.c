@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_putendl_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:08:41 by edribeir      ########   odam.nl         */
+/*   Created: 2023/10/24 10:09:04 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/10/26 09:35:32 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./Libft/libft.h"
-# include "./Libft/ft_printf.h"
-//# include "./Libft/get_next_line.h"
+#include "libft.h"
 
-typedef struct s_stack
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	number;
-	struct s_stack *next;
-} t_stack;
+	if (s != NULL)
+	{
+		ft_putstr_fd(s, fd);
+		write(fd, "\n", 1);
+	}
+}
 
-t_stack	*new_node(int number);
-t_stack	*add_number_front(t_stack *actual_number, int new_number);
-
-#endif
+// int main()
+// {
+//     ft_putendl_fd("banana", 1);
+//     ft_putendl_fd("", 1);
+// }

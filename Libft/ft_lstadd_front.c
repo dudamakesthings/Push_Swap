@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   stack_functions.c                                  :+:    :+:            */
+/*   ft_lstadd_front.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:07:52 by edribeir      ########   odam.nl         */
+/*   Created: 2023/11/03 10:05:48 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/11/03 10:05:53 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*new_node(int number)
+void	ft_lstadd_front(t_list **lst_head, t_list *new_node)
 {
-	t_stack	*new_node;
-
-	new_node = (t_stack *)malloc(sizeof(t_stack));
+	if (*lst_head == NULL)
+	{
+		*lst_head = new_node;
+		return ;
+	}
 	if (new_node == NULL)
-		return (NULL);
-	new_node->number = number;
-	new_node->next = NULL;
-	return (new_node);
-}
-t_stack	*add_number_front(t_stack *actual_number, int new_number)
-{
-	t_stack *current_number;
-
-	current_number = new_node(new_number);
-	current_number->next = actual_number;
-	return (current_number);
+		return ;
+	new_node->next = *lst_head;
+	*lst_head = new_node;
 }

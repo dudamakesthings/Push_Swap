@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   stack_functions.c                                  :+:    :+:            */
+/*   ft_lstlast.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:07:52 by edribeir      ########   odam.nl         */
+/*   Created: 2023/11/03 10:04:06 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/11/03 10:32:30 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*new_node(int number)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_stack	*new_node;
-
-	new_node = (t_stack *)malloc(sizeof(t_stack));
-	if (new_node == NULL)
+	if (lst == NULL)
 		return (NULL);
-	new_node->number = number;
-	new_node->next = NULL;
-	return (new_node);
-}
-t_stack	*add_number_front(t_stack *actual_number, int new_number)
-{
-	t_stack *current_number;
-
-	current_number = new_node(new_number);
-	current_number->next = actual_number;
-	return (current_number);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

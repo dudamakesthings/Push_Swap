@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/24 19:08:41 by edribeir      ########   odam.nl         */
+/*   Created: 2023/10/24 09:55:32 by edribeir      #+#    #+#                 */
+/*   Updated: 2023/11/27 12:07:40 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./Libft/libft.h"
-# include "./Libft/ft_printf.h"
-//# include "./Libft/get_next_line.h"
+#include "libft.h"
 
-typedef struct s_stack
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	number;
-	struct s_stack *next;
-} t_stack;
+	write(fd, s, ft_strlen(s));
+}
 
-t_stack	*new_node(int number);
-t_stack	*add_number_front(t_stack *actual_number, int new_number);
-
-#endif
+// int main()
+// {
+//     ft_putstr_fd("", 1);
+// }
