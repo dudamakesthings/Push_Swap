@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/25 16:45:57 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/26 11:26:42 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ int main(int argc, char **argv)
 	print_numbers(st_a);
 	ft_printf("%s\n", "---");
 	ft_swap(&st_a);
+	print_numbers(st_a);
+	ft_push(&st_a, &st_b);
+	ft_printf("%s\n", "--- stack b");
+	print_numbers(st_b);
+	ft_printf("%s\n", "--- stack a");
 	print_numbers(st_a);
 	ft_push(&st_a, &st_b);
 	ft_printf("%s\n", "--- stack b");
