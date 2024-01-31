@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 10:04:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2023/11/03 15:04:51 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/31 16:09:54 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,4 @@ void	ft_lstadd_back(t_list **lst_head, t_list *new_node)
 		return ;
 	}
 }
+1 ->nxt 2 ->nxt NULL

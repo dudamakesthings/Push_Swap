@@ -6,20 +6,21 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/01/30 16:52:31 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/01/31 19:01:36 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void	input_verification(char **arguments)
+void	input_verification(char *arguments)
 {
 	int	i;
 
 	i = 0;
 	while (arguments[i])
 	{
-		ft_printf("%s\n", arguments[i]);
+		ft_printf("%c\n", arguments[i]);
 		// if(ft_isdigit(*arguments[i]) == 1)
 		// {
 		// 	ft_printf("%s\n", "ERROR, Wrong Input");
@@ -29,7 +30,6 @@ void	input_verification(char **arguments)
 	}
 	// return (1);
 }
-
 t_stack	*string_to_stack(t_stack *stk_a, char **argv)
 {
 	int		i;
@@ -144,6 +144,7 @@ void	print_numbers(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	int i;
+	int j = 1;
 
 	i = 1;
 	if (argc < 2)
@@ -153,6 +154,11 @@ int	main(int argc, char **argv)
 
 	st_a = NULL;
 	st_b = NULL;
+	while (j < argc)
+	{
+		input_verification(argv[j]);
+		j++;
+	}
 	if (argc == 2)
 		st_a = string_to_stack(st_a, &argv[1]);
 	else if (argc > 2)
@@ -164,7 +170,6 @@ int	main(int argc, char **argv)
 		i++;
 		while (i < argc)
 		{
-			input_verification(&argv[i]);
 			st_a = add_to_stack(st_a, ft_atoi(argv[i]));
 			i++;
 		}

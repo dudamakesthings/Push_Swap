@@ -6,13 +6,13 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/12 16:04:57 by edribeir      #+#    #+#                  #
-#    Updated: 2024/01/24 15:09:31 by edribeir      ########   odam.nl          #
+#    Updated: 2024/01/31 18:12:36 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
-CC = CC -Wall -Werror -Wextra
+CC = CC -Wall -Werror -Wextra -g
 
 LIBFT = Libft/libft.a
 
@@ -23,8 +23,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
-
-AR = ar -rsc
 
 SOURCE = push_swap.c \
 		stack_functions.c \
@@ -37,8 +35,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
 	
 $(NAME): $(LIBFT) $(OBJECTS)
-	cp $(LIBFT) $(NAME)
-	$(AR) $(NAME) $(OBJECTS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 
 %.o:%.c 
 	$(CC) $(CFLAGS) -c -o $@ $^ -I $(LIBFTDIR)
