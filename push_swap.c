@@ -12,27 +12,29 @@
 
 #include "push_swap.h"
 
-// void	ft_check_double(t_stack *stack)
-// {
-// 	t_stack *head;
-// 	t_stack *temp;
+int	ft_check_duplicates(t_stack *stack)
+{
+	t_stack *current;
+	t_stack *temp;
 
-// 	head = stack;
-// 	temp = stack;
-// 	while (temp != NULL)
-// 	{
-// 		temp = temp->next;
-// 		if (temp == head)
-// 		{
-// 			ft_printf("%s\n", "Error");
-// 			// free sta stb
-// 			exit (1);
-// 		}
-// 		else
-// 			head = head->next;
-// 	}
-	
-// }
+	current = stack;
+	while(current != NULL)
+	{
+		temp = current->next;
+		while (temp != NULL)
+		{
+			if (current->number == temp->number)
+			{
+				ft_printf("Error\n");
+				// TODO: free sta stb
+				return (-1);
+			}
+			temp = temp->next;
+		}
+		current = current->next;
+	}
+	return (1);
+}
 
 int	input_verification(char *arguments)
 {
@@ -94,10 +96,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(1);
 	t_stack *st_a;
-	t_stack *st_b;
+	// t_stack *st_b;
 
 	st_a = NULL;
-	st_b = NULL;
+	// st_b = NULL;
 	while (j < argc)
 	{
 		error = input_verification(argv[j]);
@@ -120,17 +122,19 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
-	//ft_check_double(st_a);
+	error = ft_check_duplicates(st_a);
+	if (error == -1)
+		exit(1);
 /////////////////////////////////////////////////////////////
 	ft_printf("%s\n", "---");
 	print_numbers(st_a);
 	ft_printf("%s\n", "---");
-	ft_rotate(&st_a);
-	print_numbers(st_a);
-	ft_printf("%s\n", "---");
-	ft_reverse(&st_a);
-	print_numbers(st_a);
-	ft_printf("%s\n", "---");
+	// ft_rotate(&st_a);
+	// print_numbers(st_a);
+	// ft_printf("%s\n", "---");
+	// ft_reverse(&st_a);
+	// print_numbers(st_a);
+	// ft_printf("%s\n", "---");
 	// ft_swap(&st_a);
 	// print_numbers(st_a);
 	// ft_push(&st_a, &st_b);
