@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/20 13:36:22 by edribeir      #+#    #+#                  #
-#    Updated: 2024/01/24 15:01:49 by edribeir      ########   odam.nl          #
+#    Updated: 2024/02/05 14:48:26 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SOURCE = ft_isdigit.c \
 		ft_strlcpy.c \
 		ft_substr.c \
 		ft_atoi.c \
+		ft_atol.c \
 		ft_isprint.c \
 		ft_split.c \
 		ft_strlen.c	\
@@ -61,8 +62,7 @@ SOURCE = ft_isdigit.c \
 		ft_source.c \
 		get_next_line.c \
 		get_next_line_utils.c \
-
-BONUS_SOURCE = ft_lstnew.c \
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -74,24 +74,19 @@ BONUS_SOURCE = ft_lstnew.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
-OBJECTS_BONUS = $(BONUS_SOURCE:%.c=%.o)
-
 all: $(NAME)
 
 $(NAME) : $(OBJECTS)
-				$(AR) $(NAME) $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
 %.o:%.c $(CC) -c $(CFLAGS) -o $@ $^
 
 clean: 
-	$(RM) $(OBJECTS) $(OBJECTS_BONUS)
+	$(RM) $(OBJECTS)
 
 fclean: clean
-			$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJECTS_BONUS)
-			$(AR) $(NAME) $(OBJECTS_BONUS)
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
