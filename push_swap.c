@@ -6,59 +6,37 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/05 15:56:42 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/06 17:34:48 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_duplicates(t_stack *stack)
-{
-	t_stack *current;
-	t_stack *temp;
-
-	current = stack;
-	while(current != NULL)
-	{
-		temp = current->next;
-		while (temp != NULL)
-		{
-			if (current->number == temp->number)
-			{
-				ft_printf("Error\n");
-				// TODO: free sta stb
-				return (-1);
-			}
-			temp = temp->next;
-		}
-		current = current->next;
-	}
-	return (1);
-}
-
-int	input_verification(char *arguments)
-{
-	int	i;
-
-	i = 0;
-	while (arguments[i])
-	{
-		if (arguments[i] == ' ' | arguments[i] == '-' | arguments[i] == '+')
-				i++;
-		if (ft_isdigit(arguments[i]) != 1)
-		{
-			ft_printf("%s\n", "Error");
-			return (-1);
-		}
-		else if (ft_atol(&arguments[i]) == INT_MAX || ft_atol(&arguments[i]) == INT_MIN)
-		{
-			ft_printf("%s\n", "Error");
-			return (-1);
-		}
-		i++;
-	}
-	return (1);
-}
+// void	ft_bubble_sorting(t_stack *stack)
+// {
+// 	t_stack	*number_a;
+// 	t_stack	*number_b;
+// 	int nodes;
+// 	int i;
+// 	int j;
+	
+// 	i = 0;
+// 	j = 0;
+// 	number_a = stack;
+// 	nodes = node_counter(stack);
+// 	while (i < nodes - 1)
+// 	{
+// 		number_b = number_a->next;
+// 		while (j < nodes - i - 1)
+// 		{
+// 			if ()
+// 			number_b = number_b->next;
+// 			j++;
+// 		}
+// 		number_a = number_a->next;
+// 		i++;
+// 	}
+// }
 t_stack	*string_to_stack(t_stack *stk_a, char **argv)
 {
 	int		i;
@@ -79,7 +57,7 @@ t_stack	*string_to_stack(t_stack *stk_a, char **argv)
 	free(array);
 	return (stk_a);
 }
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	int i;
 	int j;
@@ -102,14 +80,14 @@ int	main(int argc, char **argv)
 	// st_b = NULL;
 	while (j < argc)
 	{
-		error = input_verification(argv[j]);
+		error = ft_number_checker(argv[j]);
 		if (error == -1)
 			exit(1);
 		j++;
 	}
 	if (argc == 2)
 		st_a = string_to_stack(st_a, &argv[1]);
-	else if (argc > 2)
+	if (argc > 2)
 	{
 		if (st_a == NULL)
 			st_a = new_node(ft_atoi(argv[i]));
@@ -128,7 +106,8 @@ int	main(int argc, char **argv)
 /////////////////////////////////////////////////////////////
 	ft_printf("%s\n", "---");
 	print_numbers(st_a);
-	ft_printf("%s\n", "---");
+	ft_printf("counter nodes %d", node_counter(st_a));
+	// ft_printf("%s\n", "---");
 	// ft_rotate(&st_a);
 	// print_numbers(st_a);
 	// ft_printf("%s\n", "---");

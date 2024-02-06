@@ -6,12 +6,26 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/05 15:52:03 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/06 17:00:13 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	node_counter(t_stack *stack)
+{
+	t_stack *temp;
+	int counter;
+	
+	counter = 0;
+	temp = stack;
+	while (temp != NULL)
+	{
+		counter++;
+		temp = temp->next;
+	}
+	return (counter);
+}
 void	print_numbers(t_stack *stack)
 {
 	t_stack *temp;
@@ -50,5 +64,3 @@ t_stack	*add_to_stack(t_stack *previous_number, int new_number)
 	temp->next = current_number;
 	return (previous_number);
 }
-// 1 23456782
-// 2 3 4 5 6 7 8 2
