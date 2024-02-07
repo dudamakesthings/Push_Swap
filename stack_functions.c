@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/06 17:00:13 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/07 14:33:09 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	print_numbers(t_stack *stack)
 		ft_printf("%d\n", temp->number);
 		temp = temp->next;
 	}
-	// need to free allocation for temp?
 }
 t_stack	*new_node(int number)
 {
@@ -45,7 +44,7 @@ t_stack	*new_node(int number)
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
 	{
-		// clean_up();
+		ft_free_stack(&new_node);
 		exit(1);
 	}
 	new_node->number = number;

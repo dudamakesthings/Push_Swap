@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/12 16:04:57 by edribeir      #+#    #+#                  #
-#    Updated: 2024/02/06 12:12:28 by edribeir      ########   odam.nl          #
+#    Updated: 2024/02/07 16:19:12 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SOURCE = push_swap.c \
 		ft_push.c \
 		ft_rotate.c \
 		ft_reverse.c \
+		ft_free.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
