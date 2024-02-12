@@ -6,11 +6,26 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/07 18:19:17 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/12 13:49:01 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_stack_sorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->number;
+	while (stack_a)
+	{
+		if(i > stack_a->number)
+			return (0);
+		i = stack_a->number;
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
 
 void	ft_check_duplicates(t_stack *stack)
 {

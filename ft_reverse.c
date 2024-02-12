@@ -6,13 +6,13 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/05 10:31:54 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/05 11:25:35 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/12 18:43:15 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_reverse(t_stack **head)
+void	ft_reverse(t_stack **head, char letter)
 {
 	t_stack *new_tail;
 	t_stack *temp;
@@ -28,4 +28,5 @@ void	ft_reverse(t_stack **head)
 	temp->next = *head;
 	new_tail->next = NULL;
 	*head = temp;
+	ft_printf("rr%c\n", letter);
 }

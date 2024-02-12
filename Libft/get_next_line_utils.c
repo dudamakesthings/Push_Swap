@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/15 11:02:14 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/05 14:49:54 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/12 18:04:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	get_length(const char *str)
 		i++;
 	return (i);
 }
+
 char	*combine_strs(char *p_line, char *buf)
 {
 	char	*joined;
