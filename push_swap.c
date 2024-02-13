@@ -6,19 +6,27 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/12 18:45:06 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/13 13:07:46 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	int	number_d;
-// 	t_stack	*temp;
+void	ft_find_max_number(t_stack **stack)
+{
+	int	max_number;
+	t_stack	*temp;
 
-// 	//TO DO
-// }
+	temp = (*stack);
+	max_number = temp->number;
+	while (temp)
+	{
+		if (max_number < temp->number)
+			max_number = temp->number;
+		temp = temp->next;
+	}
+	// ft_printf("%i\n", max_number);
+}
 
 void	ft_find_min_number(t_stack **stack)
 {
@@ -33,6 +41,7 @@ void	ft_find_min_number(t_stack **stack)
 			min_number = temp->number;
 		temp = temp->next;
 	}
+	// ft_printf("%i\n", min_number);
 }
 
 void	ft_sorting_3_numbers(t_stack **stack_a)
@@ -90,12 +99,29 @@ void	ft_sorting_3_numbers(t_stack **stack_a)
 // 	}
 // 	// ft_printf("\n%d", min_number);
 // }
-void	ft_sorting_2_numbers(t_stack **stack_a)
+void	ft_sorting_2_numbers(t_stack **stack, char letter)
 {
-	if ((*stack_a)->number > (*stack_a)->next->number)
+	if ((*stack)->number > (*stack)->next->number)
 	{
-		ft_swap(stack_a, 'a');
-		ft_printf("sa");
+		ft_swap(stack, letter);
+	}
+}
+
+void	ft_sorting_more_numbers(t_stack **stack_a, t_stack **stack_b)
+{
+	int	nodes;
+	// t_stack	*temp;
+
+	nodes = node_counter(*stack_a);
+	ft_printf("nodes:%i\n", nodes);
+	if (nodes < 6)
+	{
+		ft_push(stack_a, stack_b, 'a');
+		ft_push(stack_a, stack_b, 'a');
+		ft_sorting_3_numbers(stack_a);
+		ft_sorting_2_numbers(stack_b, 'b');
+		ft_push(stack_b, stack_a, 'b');
+		ft_push(stack_b, stack_a, 'b');
 	}
 }
 
@@ -161,38 +187,12 @@ int	main(int argc, char *argv[])
 	if (error == 0)
 	{
 		// ft_sorting_2_numbers(&st_a);
-		ft_sorting_3_numbers(&st_a);
+		// ft_sorting_3_numbers(&st_a);
+		// ft_find_max_number(&st_a);
+		// ft_find_min_number(&st_a);
+		ft_sorting_more_numbers(&st_a, &st_b);
 	}
-
-/////////////////////////////////////////////////////////////
-	// ft_printf("%s\n", "---");
-	// print_numbers(st_a);
-	// ft_sorting_2_numbers(&st_a);
-	// ft_sorting_3_numbers(&st_a, &st_b);
-	// ft_printf("%s\n", "---");
-	// print_numbers(st_a);
-	// ft_printf("%s\n", "---");
-	// ft_rotate(&st_b);
-	// ft_printf("counter nodes %d", node_counter(st_a));
-	// ft_printf("%s\n", "---");
-	// ft_rotate(&st_a);
-	// print_numbers(st_a);
-	// ft_printf("%s\n", "---");
-	// ft_reverse(&st_a);
-	// print_numbers(st_a);
-	// ft_printf("%s\n", "---");
-	// ft_swap(&st_a);
-	// print_numbers(st_a);
-	// ft_push(&st_a, &st_b);
-	// ft_printf("%s\n", "--- stack b");
-	// print_numbers(st_b);
-	// ft_printf("%s\n", "--- stack a");
-	// print_numbers(st_a);
-	// ft_push(&st_a, &st_b);
-	// ft_printf("%s\n", "--- stack b");
-	// print_numbers(st_b);
-	// ft_printf("%s\n", "--- stack a");
-	// print_numbers(st_a);
+	print_numbers(st_a);
 	ft_free_stack(&st_a);
 	exit(0);
 }
