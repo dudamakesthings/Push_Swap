@@ -6,15 +6,15 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/13 13:07:46 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 15:22:20 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_find_max_number(t_stack **stack)
+int	ft_find_max_number(t_stack **stack)
 {
-	int	max_number;
+	int		max_number;
 	t_stack	*temp;
 
 	temp = (*stack);
@@ -25,12 +25,13 @@ void	ft_find_max_number(t_stack **stack)
 			max_number = temp->number;
 		temp = temp->next;
 	}
+	return (max_number);
 	// ft_printf("%i\n", max_number);
 }
 
-void	ft_find_min_number(t_stack **stack)
+int	ft_find_min_number(t_stack **stack)
 {
-	int	min_number;
+	int		min_number;
 	t_stack	*temp;
 
 	temp = (*stack);
@@ -41,36 +42,8 @@ void	ft_find_min_number(t_stack **stack)
 			min_number = temp->number;
 		temp = temp->next;
 	}
+	return (min_number);
 	// ft_printf("%i\n", min_number);
-}
-
-void	ft_sorting_3_numbers(t_stack **stack_a)
-{
-	int		number_a;
-	int		number_b;
-	int		number_c;
-	t_stack	*temp;
-
-	temp = (*stack_a);
-	number_a = (temp)->number;
-	number_b = (temp)->next->number;
-	number_c = (temp)->next->next->number;
-	if (number_a > number_b && number_a < number_c)
-		ft_swap(stack_a, 'a');
-	else if (number_a > number_c && number_b < number_c)
-		ft_rotate(stack_a, 'a');
-	else if (number_a > number_c && number_b > number_c && number_a < number_b)
-		ft_reverse(stack_a, 'a');
-	else if (number_a > number_c && number_b > number_c && number_a > number_b)
-	{
-		ft_rotate(stack_a, 'a');
-		ft_swap(stack_a, 'a');
-	}
-	else if (number_a < number_c && number_b > number_c && number_a < number_b)
-	{
-		ft_reverse(stack_a, 'a');
-		ft_swap(stack_a, 'a');
-	}
 }
 
 // void	ft_sorting_3_numbers(t_stack **stack_a)
@@ -99,33 +72,27 @@ void	ft_sorting_3_numbers(t_stack **stack_a)
 // 	}
 // 	// ft_printf("\n%d", min_number);
 // }
-void	ft_sorting_2_numbers(t_stack **stack, char letter)
+// void	ft_sorting_5_numbers(t_stack **stack_a, t_stack **stack_b)
+// {
+
+// }
+
+void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack)->number > (*stack)->next->number)
+	int		small;
+	t_stack	*temp;
+
+	temp = (*stack_a);
+	small = ft_find_min_number(stack_a);
+	ft_printf("small:%i\n", small);
+	if (temp->number != small)
 	{
-		ft_swap(stack, letter);
+		ft_push(&temp, stack_b, 'a');
+		temp = temp->next;
 	}
 }
 
-void	ft_sorting_more_numbers(t_stack **stack_a, t_stack **stack_b)
-{
-	int	nodes;
-	// t_stack	*temp;
-
-	nodes = node_counter(*stack_a);
-	ft_printf("nodes:%i\n", nodes);
-	if (nodes < 6)
-	{
-		ft_push(stack_a, stack_b, 'a');
-		ft_push(stack_a, stack_b, 'a');
-		ft_sorting_3_numbers(stack_a);
-		ft_sorting_2_numbers(stack_b, 'b');
-		ft_push(stack_b, stack_a, 'b');
-		ft_push(stack_b, stack_a, 'b');
-	}
-}
-
-t_stack	*string_to_stack(t_stack *stk_a, char *argv[])
+t_stack	*string_to_stack(t_stack *stack_a, char *argv[])
 {
 	int		i;
 	char	**array;
@@ -136,14 +103,14 @@ t_stack	*string_to_stack(t_stack *stk_a, char *argv[])
 	while (array[i])
 	{
 		nb = ft_atoi(array[i]);
-		if (stk_a == NULL)
-			stk_a = new_node(ft_atoi(array[i]));
+		if (stack_a == NULL)
+			stack_a = new_node(ft_atoi(array[i]));
 		else
-			stk_a = add_to_stack(stk_a, nb);
+			stack_a = add_to_stack(stack_a, nb);
 		i++;
 	}
 	ft_free_split(array);
-	return (stk_a);
+	return (stack_a);
 }
 
 int	main(int argc, char *argv[])
@@ -151,13 +118,13 @@ int	main(int argc, char *argv[])
 	int			i;
 	int			j;
 	int			error;
-	t_stack		*st_b;
-	t_stack		*st_a;
+	t_stack		*stack_b;
+	t_stack		*stack_a;
 
 	i = 1;
 	j = 1;
-	st_a = NULL;
-	st_b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		exit(1);
 	while (j < argc)
@@ -166,33 +133,36 @@ int	main(int argc, char *argv[])
 		j++;
 	}
 	if (argc == 2)
-		st_a = string_to_stack(st_a, &argv[1]);
+		stack_a = string_to_stack(stack_a, &argv[1]);
 	if (argc > 2)
 	{
-		if (st_a == NULL)
-			st_a = new_node(ft_atoi(argv[i]));
+		if (stack_a == NULL)
+			stack_a = new_node(ft_atoi(argv[i]));
 		// if (st_b == NULL)
 		// 	st_b = new_node(ft_atoi(argv[i]));
 		i++;
 		while (i < argc)
 		{
-			st_a = add_to_stack(st_a, ft_atoi(argv[i]));
+			stack_a = add_to_stack(stack_a, ft_atoi(argv[i]));
 			i++;
 		}
 	}
-	ft_check_duplicates(st_a);
-	// print_numbers(st_a);
+	ft_check_duplicates(stack_a);
+	print_numbers(stack_a);
+	ft_printf("----------");
+	ft_printf("\nstack a\n");
 	
-	error = ft_stack_sorted(st_a);
+	error = ft_stack_sorted(stack_a);
 	if (error == 0)
 	{
-		// ft_sorting_2_numbers(&st_a);
-		// ft_sorting_3_numbers(&st_a);
-		// ft_find_max_number(&st_a);
-		// ft_find_min_number(&st_a);
-		ft_sorting_more_numbers(&st_a, &st_b);
+		// ft_sorting_2_numbers(&stack_a, 'a');
+		ft_sorting_3_numbers(&stack_a, 'a');
+		// ft_sorting_4_numbers(&stack_a, &stack_b);
 	}
-	print_numbers(st_a);
-	ft_free_stack(&st_a);
+	// print_numbers(stack_a);
+	ft_printf("----------");
+	ft_printf("\nstack b\n");
+	print_numbers(stack_b);
+	ft_free_stack(&stack_a);
 	exit(0);
 }

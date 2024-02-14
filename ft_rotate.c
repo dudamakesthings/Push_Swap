@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/05 10:29:38 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/12 18:42:02 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:05:32 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_rotate(t_stack **head, char letter)
 {
-	t_stack *first;
-	t_stack *temp;
+	t_stack	*first;
+	t_stack	*temp;
 
 	if (*head == NULL)
 		return ;

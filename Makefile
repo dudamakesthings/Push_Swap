@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/12 16:04:57 by edribeir      #+#    #+#                  #
-#    Updated: 2024/02/07 16:19:12 by edribeir      ########   odam.nl          #
+#    Updated: 2024/02/14 12:35:30 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ RM = rm -f
 SOURCE = push_swap.c \
 		input_checkers.c \
 		stack_functions.c \
+		sorting_sources.c \
 		ft_swap.c \
 		ft_push.c \
 		ft_rotate.c \

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/05 10:27:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/12 18:37:10 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:06:16 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_push(t_stack **stack_from, t_stack **stack_to, char letter)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (*stack_from == NULL)
 		return ;
-
 	temp = *stack_from;
 	*stack_from = (*stack_from)->next;
 	if (stack_to == NULL)

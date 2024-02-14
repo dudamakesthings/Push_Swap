@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/12 13:49:01 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:11:09 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_stack_sorted(t_stack *stack_a)
 	i = stack_a->number;
 	while (stack_a)
 	{
-		if(i > stack_a->number)
+		if (i > stack_a->number)
 			return (0);
 		i = stack_a->number;
 		stack_a = stack_a->next;
@@ -29,11 +29,11 @@ int	ft_stack_sorted(t_stack *stack_a)
 
 void	ft_check_duplicates(t_stack *stack)
 {
-	t_stack *current;
-	t_stack *temp;
+	t_stack	*current;
+	t_stack	*temp;
 
 	current = stack;
-	while(current != NULL)
+	while (current != NULL)
 	{
 		temp = current->next;
 		while (temp != NULL)
@@ -50,23 +50,23 @@ void	ft_check_duplicates(t_stack *stack)
 	}
 }
 
-void	ft_number_checker(char *arguments)
+void	ft_number_checker(char *arg)
 {
 	int	i;
 
 	i = 0;
-	while (arguments[i])
+	while (arg[i])
 	{
-		if (arguments[i] == ' ')
+		if (arg[i] == ' ')
 			i++;
-		if (arguments[i] == '-' | arguments[i] == '+')
+		if (arg[i] == '-' | arg[i] == '+')
 			i++;
-		else if (ft_isdigit(arguments[i]) != 1)
+		else if (ft_isdigit(arg[i]) != 1)
 		{
 			ft_printf("Error\n");
 			exit (1);
 		}
-		else if (ft_atol(&arguments[i]) > INT_MAX || ft_atol(&arguments[i]) < INT_MIN)
+		else if (ft_atol(&arg[i]) > INT_MAX || ft_atol(&arg[i]) < INT_MIN)
 		{
 			ft_printf("Error\n");
 			exit (1);

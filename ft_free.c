@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/07 13:43:21 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/07 14:23:24 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:07:08 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ void	ft_free_stack(t_stack **stack)
 	t_stack	*temp;
 
 	head = *stack;
-	while(head != NULL)
+	while (head != NULL)
 	{
 		temp = head;
 		head = head->next;
 		free (temp);
 	}
-	free(head);
+	free (head);
 }
 
 void	ft_free_split(char **array)
 {
 	int	i;
-	
+
 	i = 0;
-	while(array[i] != NULL)
+	while (array[i] != NULL)
 	{
-		free(array[i]);
+		free (array[i]);
 		i++;
 	}
-	free(array);
+	free (array);
 }

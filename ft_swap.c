@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/05 10:25:05 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/12 18:37:44 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:04:47 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap(t_stack **head, char letter)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (*head == NULL)
 		return ;
@@ -22,5 +22,5 @@ void	ft_swap(t_stack **head, char letter)
 	(*head)->next = temp->next;
 	temp->next = *head;
 	*head = temp;
-	ft_printf("s%c", letter);
+	ft_printf("s%c\n", letter);
 }

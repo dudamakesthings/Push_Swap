@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/07 14:33:09 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/14 12:02:58 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	node_counter(t_stack *stack)
 {
-	t_stack *temp;
-	int counter;
-	
+	t_stack		*temp;
+	int			counter;
+
 	counter = 0;
 	temp = stack;
 	while (temp != NULL)
@@ -26,17 +26,19 @@ int	node_counter(t_stack *stack)
 	}
 	return (counter);
 }
+
 void	print_numbers(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = stack;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		ft_printf("%d\n", temp->number);
 		temp = temp->next;
 	}
 }
+
 t_stack	*new_node(int number)
 {
 	t_stack	*new_node;
@@ -51,6 +53,7 @@ t_stack	*new_node(int number)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 t_stack	*add_to_stack(t_stack *previous_number, int new_number)
 {
 	t_stack	*current_number;
