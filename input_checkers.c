@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/14 12:11:09 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/19 15:20:08 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 int	ft_stack_sorted(t_stack *stack_a)
 {
 	int	i;
+	t_stack	*temp;
 
-	i = stack_a->number;
-	while (stack_a)
+	temp = stack_a;
+	i = temp->number;
+	while (temp->next != NULL)
 	{
-		if (i > stack_a->number)
+		temp = temp->next;
+		if (i > temp->number)
 			return (0);
-		i = stack_a->number;
-		stack_a = stack_a->next;
+		i = temp->number;
 	}
 	return (1);
 }

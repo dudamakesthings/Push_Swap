@@ -6,12 +6,27 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/14 15:22:20 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/19 16:36:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
+void	ft_bubble_sorting(t_stack **stack)
+{
+	printf("is sorted = %d\n", ft_stack_sorted(*stack));
+	int i = 0;
+	while (i <= 5)
+	{
+		if ((*stack)->number > (*stack)->next->number)
+		{
+			ft_swap(stack, 'a');
+		}
+			ft_rotate(stack, 'a');
+		i++;
+	}
+}
 int	ft_find_max_number(t_stack **stack)
 {
 	int		max_number;
@@ -46,51 +61,20 @@ int	ft_find_min_number(t_stack **stack)
 	// ft_printf("%i\n", min_number);
 }
 
-// void	ft_sorting_3_numbers(t_stack **stack_a)
+// void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b)
 // {
-// 	// int	min_number;
+// 	int		small;
 // 	t_stack	*temp;
-// 	t_stack *current;
-// 	current = *stack_a;
-// 	while (current != NULL)
+
+// 	temp = (*stack_a);
+// 	small = ft_find_min_number(stack_a);
+// 	ft_printf("small:%i\n", small);
+// 	if (temp->number != small)
 // 	{
-// 		temp = current->next;
-// 		while (temp != NULL)
-// 		{
-// 			if (current->number > temp->number)
-// 			{
-// 				ft_swap(stack_a);
-// 				// min_number = temp->number;
-// 				// // ft_printf("\n%d", min_number);
-// 				// if (min_number > current->number)
-// 				// 	min_number = current->number;
-// 			}
-// 			temp = temp->next;
-// 		}
-// 		// ft_printf("\n%d", current->number);
-// 		current = current->next;
+// 		ft_push(&temp, stack_b, 'a');
+// 		temp = temp->next;
 // 	}
-// 	// ft_printf("\n%d", min_number);
 // }
-// void	ft_sorting_5_numbers(t_stack **stack_a, t_stack **stack_b)
-// {
-
-// }
-
-void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b)
-{
-	int		small;
-	t_stack	*temp;
-
-	temp = (*stack_a);
-	small = ft_find_min_number(stack_a);
-	ft_printf("small:%i\n", small);
-	if (temp->number != small)
-	{
-		ft_push(&temp, stack_b, 'a');
-		temp = temp->next;
-	}
-}
 
 t_stack	*string_to_stack(t_stack *stack_a, char *argv[])
 {
@@ -148,21 +132,22 @@ int	main(int argc, char *argv[])
 		}
 	}
 	ft_check_duplicates(stack_a);
-	print_numbers(stack_a);
-	ft_printf("----------");
-	ft_printf("\nstack a\n");
+	// print_numbers(stack_a);
+	// ft_printf("----------");
+	// ft_printf("\nstack a\n");
 	
 	error = ft_stack_sorted(stack_a);
 	if (error == 0)
 	{
+		ft_bubble_sorting(&stack_a);
 		// ft_sorting_2_numbers(&stack_a, 'a');
-		ft_sorting_3_numbers(&stack_a, 'a');
+		// ft_sorting_3_numbers(&stack_a, 'a');
 		// ft_sorting_4_numbers(&stack_a, &stack_b);
 	}
-	// print_numbers(stack_a);
-	ft_printf("----------");
-	ft_printf("\nstack b\n");
-	print_numbers(stack_b);
+	print_numbers(stack_a);
+	// ft_printf("----------");
+	// ft_printf("\nstack b\n");
+	// print_numbers(stack_b);
 	ft_free_stack(&stack_a);
 	exit(0);
 }

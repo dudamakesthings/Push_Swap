@@ -6,11 +6,11 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 12:56:06 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/15 14:52:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/19 11:26:50 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "pw_header.h"
 
 t_stack	*ft_last_node(t_stack *lst)
 {
@@ -91,9 +91,8 @@ int main(int argc, char **argv)
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		stack_init(&stack_a, argv + 1);
 	}
-	else if (argc > 2)
+	// else if (argc > 2)
 		stack_init(&stack_a, argv);
 	if (argc == 2)
 		ft_free_split(argv);
