@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/19 15:20:08 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/20 18:28:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_stack_sorted(t_stack *stack_a)
 	{
 		temp = temp->next;
 		if (i > temp->number)
-			return (0);
+			return (false);
 		i = temp->number;
 	}
-	return (1);
+	return (true);
 }
 
 void	ft_check_duplicates(t_stack *stack)
@@ -44,7 +44,7 @@ void	ft_check_duplicates(t_stack *stack)
 			{
 				ft_printf("Error\n");
 				ft_free_stack(&stack);
-				exit (1);
+				exit (true);
 			}
 			temp = temp->next;
 		}
@@ -66,12 +66,12 @@ void	ft_number_checker(char *arg)
 		else if (ft_isdigit(arg[i]) != 1)
 		{
 			ft_printf("Error\n");
-			exit (1);
+			exit (true);
 		}
 		else if (ft_atol(&arg[i]) > INT_MAX || ft_atol(&arg[i]) < INT_MIN)
 		{
 			ft_printf("Error\n");
-			exit (1);
+			exit (true);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/14 12:14:10 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/20 18:31:11 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include "./Libft/libft.h"
 # include "./Libft/ft_printf.h"
 # include "./Libft/get_next_line.h"
