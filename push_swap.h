@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/20 18:31:11 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/21 11:44:29 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct s_stack
 // Input Checkers
 void	ft_number_checker(char *arg);
 void	ft_check_duplicates(t_stack *stack);
-int		ft_stack_sorted(t_stack *stack_a);
+bool	ft_stack_sorted(t_stack *stack_a);
 
 // Print List
 void	print_numbers(t_stack *stack);
 
 // Linked List
 t_stack	*new_node(int number);
-t_stack	*add_to_stack(t_stack *previous_number, int new_number);
+t_stack	*add_to_stack(t_stack *previous_number, int number);
 int		node_counter(t_stack *stack);
 
 // Rules Functions
@@ -52,5 +52,9 @@ void	ft_free_split(char **array);
 // Sorting Functions
 void	ft_sorting_2_numbers(t_stack **stack, char letter);
 void	ft_sorting_3_numbers(t_stack **stack, char letter);
+
+// Numbers
+int		ft_find_max_number(t_stack *stack);
+int		ft_find_min_number(t_stack *stack);
 
 #endif

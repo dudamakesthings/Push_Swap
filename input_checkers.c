@@ -6,13 +6,13 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/20 18:28:17 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/21 11:49:20 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stack_sorted(t_stack *stack_a)
+bool	ft_stack_sorted(t_stack *stack_a)
 {
 	int	i;
 	t_stack	*temp;
