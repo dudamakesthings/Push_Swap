@@ -12,36 +12,36 @@
 
 #include "push_swap.h"
 
+// int	ft_find_max_number(t_stack *stack)
+// {
+// 	int		max_number;
+// 	t_stack	*temp;
+
+// 	temp = stack;
+// 	max_number = temp->number;
+// 	while (temp)
+// 	{
+// 		if (max_number < temp->number)
+// 			max_number = temp->number;
+// 		temp = temp->next;
+// 	}
+// 	return (max_number);
+// }
+
 int	ft_find_max_number(t_stack *stack)
 {
 	int		max_number;
 	t_stack	*temp;
 
+	max_number = INT_MIN;
 	temp = stack;
-	max_number = temp->number;
-	while (temp)
+	while (temp != NULL)
 	{
-		if (max_number < temp->number)
-			max_number = temp->number;
+		if (temp->index > max_number)
+			max_number = temp->index;
 		temp = temp->next;
 	}
 	return (max_number);
-}
-
-int	ft_find_min_number(t_stack *stack)
-{
-	int		min_number;
-	t_stack	*temp;
-
-	temp = stack;
-	min_number = temp->number;
-	while (temp)
-	{
-		if (min_number > temp->number)
-			min_number = temp->number;
-		temp = temp->next;
-	}
-	return (min_number);
 }
 
 int	node_counter(t_stack *stack)
@@ -79,7 +79,7 @@ t_stack	*new_node(int number)
 	if (new_node == NULL)
 	{
 		ft_free_stack(&new_node);
-		exit(1);
+		exit(true);
 	}
 	new_node->number = number;
 	new_node->next = NULL;

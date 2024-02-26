@@ -23,13 +23,13 @@ static int	ft_format_printf(va_list args, const char *format)
 		counter += ft_putchar_i('%');
 	else if (*format == 'c')
 		counter += ft_putchar_i(va_arg(args, int));
-	else if (*format == 'd' | *format == 'i')
+	else if ((*format == 'd' )| (*format == 'i'))
 		counter += ft_putnb_i(va_arg(args, int));
 	else if (*format == 's')
 		counter += ft_putstr_i(va_arg(args, char *));
 	else if (*format == 'u')
 		counter = counter + ft_utoa(va_arg(args, unsigned int));
-	else if (*format == 'X' | *format == 'x')
+	else if ((*format == 'X') | (*format == 'x'))
 		counter = counter + ft_ithex((va_arg(args, int)), format);
 	else if (*format == 'p')
 		counter += ft_pointhex(va_arg(args, unsigned long));

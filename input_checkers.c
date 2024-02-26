@@ -61,7 +61,7 @@ void	ft_number_checker(char *arg)
 	{
 		if (arg[i] == ' ')
 			i++;
-		if (arg[i] == '-' | arg[i] == '+')
+		if ((arg[i] == '-') | (arg[i] == '+'))
 			i++;
 		else if (ft_isdigit(arg[i]) != 1)
 		{

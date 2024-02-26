@@ -19,7 +19,7 @@
 # include <string.h>
 # include <ctype.h>
 # include <stddef.h>
-# include <bsd/string.h>
+# include <string.h>
 # include <limits.h>
 # include <unistd.h>
 

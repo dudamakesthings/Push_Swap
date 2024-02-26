@@ -12,6 +12,75 @@
 
 #include "push_swap.h"
 
+void	ft_radix_sorting(t_stack **stack_a, t_stack **stack_b)
+{
+	int	max_number;
+	int	max_bits;
+	int	i;
+	int	j;
+
+	max_number = ft_find_max_number(*stack_a);
+	max_bits = find_bits(max_number);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j <= max_number)
+		{
+			if (((*stack_a)->index >> i) & 1)
+				ft_rotate(stack_a, 'a');
+			else
+				ft_push(stack_a, stack_b, 'b');
+			j++;
+		}
+		while (*stack_b != NULL)
+			ft_push(stack_b, stack_a, 'a');
+		i++;
+	}
+}
+
+void	ft_sorting_4_5_numbers (t_stack **stack_a, t_stack **stack_b)
+{
+	int	nb_nodes;
+
+	nb_nodes = node_counter(*stack_a);
+	while (nb_nodes > 0)
+	{
+		// printf("esse eh o index dos numeros = %i \n", (*stack_a)->index);
+		if((*stack_a)->index == 0 || (*stack_a)->index == 1)
+			ft_push(stack_a, stack_b, 'b');
+		else
+			ft_rotate(stack_a, 'a');
+		nb_nodes--;
+	}
+	nb_nodes = node_counter(*stack_a);
+	if (nb_nodes == 5)
+		ft_sorting_3_numbers(stack_a, 'a');
+	else
+		ft_sorting_2_numbers(stack_a, 'a');
+	ft_push(stack_b, stack_a, 'a');
+	ft_push(stack_b, stack_a, 'a');
+	if ((*stack_a)->index > (*stack_a)->next->index)
+		ft_swap(stack_a, 'a');
+
+	// int	size;
+
+	// size = node_counter(*stack_a);
+	// while (size--)
+	// {
+	// 	if ((*stack_a)->index == 0 || (*stack_a)->index == 1)
+	// 		ft_push(stack_a, stack_b, 'b');
+	// 	else
+	// 		ft_rotate(stack_a, 'a');
+	// }
+	// ft_sorting_3_numbers(stack_a, 'a');
+	// ft_push(stack_a, stack_b, 'a');
+	// ft_push(stack_a, stack_b, 'a');
+	// if ((*stack_a)->index > (*stack_a)->next->index)
+	// 	ft_swap(stack_a, 'a');
+	
+}
+
 void	ft_sorting_3_numbers(t_stack **stack, char letter)
 {
 	int		number_a;
@@ -39,6 +108,15 @@ void	ft_sorting_3_numbers(t_stack **stack, char letter)
 		ft_reverse(stack, letter);
 		ft_swap(stack, letter);
 	}
+	// int	biggest;
+
+	// biggest = ft_find_max_number(*stack);
+	// if ((*stack)->index == biggest)
+	// 	ft_rotate(stack, letter);
+	// else if ((*stack)->next->index == biggest)
+	// 	ft_reverse(stack, letter);
+	// if ((*stack)->index > (*stack)->next->index)
+	// 	ft_swap(stack, letter);
 }
 
 void	ft_sorting_2_numbers(t_stack **stack, char letter)

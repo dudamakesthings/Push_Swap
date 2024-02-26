@@ -23,6 +23,7 @@
 typedef struct s_stack
 {
 	int				number;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -52,9 +53,11 @@ void	ft_free_split(char **array);
 // Sorting Functions
 void	ft_sorting_2_numbers(t_stack **stack, char letter);
 void	ft_sorting_3_numbers(t_stack **stack, char letter);
+void	ft_sorting_4_5_numbers (t_stack **stack_a, t_stack **stack_b);
+void	ft_radix_sorting(t_stack **stack_a, t_stack **stack_b);
 
 // Numbers
+int		find_bits(int max_number);
 int		ft_find_max_number(t_stack *stack);
-int		ft_find_min_number(t_stack *stack);
 
 #endif
