@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/21 11:49:20 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 10:43:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 bool	ft_stack_sorted(t_stack *stack_a)
 {
-	int	i;
 	t_stack	*temp;
 
 	temp = stack_a;
-	i = temp->number;
-	while (temp->next != NULL)
+	while (temp->next != NULL && temp)
 	{
-		temp = temp->next;
-		if (i > temp->number)
+		if (temp->index > temp->next->index)
 			return (false);
-		i = temp->number;
+		temp = temp->next;
 	}
 	return (true);
 }
@@ -63,7 +60,7 @@ void	ft_number_checker(char *arg)
 			i++;
 		if ((arg[i] == '-') | (arg[i] == '+'))
 			i++;
-		else if (ft_isdigit(arg[i]) != 1)
+		else if (ft_isdigit(arg[i]) != true)
 		{
 			ft_printf("Error\n");
 			exit (true);

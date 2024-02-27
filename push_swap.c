@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/21 12:09:31 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 11:44:38 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,19 @@ void	ft_set_index_to_stack(t_stack *stack_a, int size_stack)
 
 	while(size_stack > 0)
 	{
+		size_stack--;
 		max_number = NULL;
 		temp = stack_a;
 		while (temp != NULL)
 		{
 			if ((temp->index == false) && ((max_number == NULL)
-				|| temp->number > max_number->number))
-					max_number = temp;
+					|| temp->number > max_number->number))
+				max_number = temp;
 			temp = temp->next;
 		}
 		if (max_number != NULL)
 			max_number->index = size_stack;
-		// ft_printf ("esse eh o index = %i\n -----", max_number->index);
-		size_stack--;
+		
 	}
 }
 
@@ -157,8 +157,10 @@ t_stack *ft_sort(t_stack *stack_a)
 			ft_sorting_2_numbers(&stack_a, 'a');
 		else if (node_counter(stack_a) == 3)
 			ft_sorting_3_numbers(&stack_a, 'a');
-		else if (node_counter(stack_a) <= 5)
-			ft_sorting_4_5_numbers(&stack_a, &stack_b);
+		else if (node_counter(stack_a) == 4)
+			ft_sorting_4_numbers(&stack_a, &stack_b);
+		else if (node_counter(stack_a) == 5)
+			ft_sorting_5_numbers(&stack_a, &stack_b);
 		else
 			ft_radix_sorting(&stack_a, &stack_b);
 	}
@@ -187,7 +189,7 @@ int	main(int argc, char *argv[])
 	}
 	ft_check_duplicates(stack_a);
 	stack_a = ft_sort(stack_a);
-	print_numbers(stack_a);
+	// print_numbers(stack_a);
 	ft_free_stack(&stack_a);
 }
 

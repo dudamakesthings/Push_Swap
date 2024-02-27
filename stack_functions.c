@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/21 11:41:44 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 10:46:29 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@
 // 	}
 // 	return (max_number);
 // }
+void	print_numbers(t_stack *stack)
+{
+	t_stack	*current;
+	int		i;
+
+	current = stack;
+	i = 0;
+	while (current != NULL)
+	{
+		printf("node: %d: %d	index: %d\n", i, current->number, current->index);
+		i++;
+		current = current->next;
+	}
+}
 
 int	ft_find_max_number(t_stack *stack)
 {
@@ -57,18 +71,6 @@ int	node_counter(t_stack *stack)
 		temp = temp->next;
 	}
 	return (counter);
-}
-
-void	print_numbers(t_stack *stack)
-{
-	t_stack	*temp;
-
-	temp = stack;
-	while (temp != NULL)
-	{
-		ft_printf("%d\n", temp->number);
-		temp = temp->next;
-	}
 }
 
 t_stack	*new_node(int number)
