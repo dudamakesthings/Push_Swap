@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 17:37:04 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 11:35:23 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 16:14:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	ft_free_split(char **array);
 // Sorting Functions
 void	ft_sorting_2_numbers(t_stack **stack, char letter);
 void	ft_sorting_3_numbers(t_stack **stack, char letter);
-void	ft_sorting_4_numbers (t_stack **stack_a, t_stack **stack_b);
-void	ft_sorting_5_numbers (t_stack **stack_a, t_stack **stack_b);
+void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b);
+void	ft_sorting_5_numbers(t_stack **stack_a, t_stack **stack_b);
 void	ft_radix_sorting(t_stack **stack_a, t_stack **stack_b);
 
 // Numbers

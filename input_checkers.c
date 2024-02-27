@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 10:43:17 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 17:15:42 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	ft_number_checker(char *arg)
 			i++;
 		if ((arg[i] == '-') | (arg[i] == '+'))
 			i++;
-		else if (ft_isdigit(arg[i]) != true)
+		if (ft_isdigit(arg[i]) != true)
 		{
 			ft_printf("Error\n");
 			exit (true);
 		}
-		else if (ft_atol(&arg[i]) > INT_MAX || ft_atol(&arg[i]) < INT_MIN)
+		else if (ft_atoi(&arg[i]) > INT_MAX || ft_atoi(&arg[i]) < INT_MIN)
 		{
 			ft_printf("Error\n");
 			exit (true);

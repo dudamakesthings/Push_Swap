@@ -6,39 +6,24 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 10:46:29 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 16:17:35 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	ft_find_max_number(t_stack *stack)
-// {
-// 	int		max_number;
-// 	t_stack	*temp;
-
-// 	temp = stack;
-// 	max_number = temp->number;
-// 	while (temp)
-// 	{
-// 		if (max_number < temp->number)
-// 			max_number = temp->number;
-// 		temp = temp->next;
-// 	}
-// 	return (max_number);
-// }
 void	print_numbers(t_stack *stack)
 {
-	t_stack	*current;
+	t_stack	*temp;
 	int		i;
 
-	current = stack;
+	temp = stack;
 	i = 0;
-	while (current != NULL)
+	while (temp != NULL)
 	{
-		printf("node: %d: %d	index: %d\n", i, current->number, current->index);
+		printf("node: %d: %d	index: %d\n", i, temp->number, temp->index);
 		i++;
-		current = current->next;
+		temp = temp->next;
 	}
 }
 
@@ -87,6 +72,7 @@ t_stack	*new_node(int number)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 t_stack	*add_to_stack(t_stack *previous_number, int number)
 {
 	t_stack	*current;
@@ -102,23 +88,3 @@ t_stack	*add_to_stack(t_stack *previous_number, int number)
 	current->next = new_node(number);
 	return (previous_number);
 }
-
-// t_stack	*add_to_stack(t_stack *previous_number, int new_number)
-// {
-// 	// t_stack	*current_number;
-// 	t_stack	*current;
-
-// 	if (previous_number == NULL)
-// 	{
-// 		previous_number = new_node(new_number);
-// 		// return (previous_number);
-// 	}
-// 	// temp = previous_number;
-// 	// current_number = new_node(new_number);
-// 	current = previous_number;
-// 	while (current->next != NULL)
-// 		current = current->next;
-// 	current->next = new_node(new_number);
-// 	// current->next = current_number;
-// 	return (previous_number);
-// }

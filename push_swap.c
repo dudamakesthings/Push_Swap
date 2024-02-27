@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 11:44:38 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/27 16:13:43 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,89 +22,15 @@ int	find_bits(int max_number)
 		max_number >>= 1;
 		max_bits++;
 	}
-	return(max_bits);
+	return (max_bits);
 }
-
-// t_stack	*ft_get_next_max(t_stack *stack_a)
-// {
-// 	t_stack	*temp;
-// 	t_stack	*max_number;
-// 	bool	max_exist;
-
-// 	max_number = NULL;
-// 	max_exist = false;
-// 	temp = stack_a;
-// 	if (temp != NULL)
-// 	{
-// 		while(temp != NULL)
-// 		{
-// 			if ((temp->index == false) && (max_exist == false || temp->number > max_number->number))
-// 			{
-// 				max_number = temp;
-// 				max_exist = true;
-// 			}
-// 			temp = temp->next;
-// 		}	
-// 	}
-// 	// print_numbers(min_number);
-// 	// ft_printf("\n--------\n");
-// 	return (max_number);
-// }
-
-// t_stack	*ft_get_next_min(t_stack *stack_a)
-// {
-// 	t_stack	*temp;
-// 	t_stack	*min_number;
-// 	bool	min_exist;
-
-// 	min_number = NULL;
-// 	min_exist = false;
-// 	temp = stack_a;
-// 	if (temp)
-// 	{
-// 		while(temp != NULL)
-// 		{
-// 			if ((temp->index == false) && (min_exist == false || temp->number < min_number->number))
-// 			{
-// 				min_number = temp;
-// 				min_exist = true;
-// 			}
-// 			temp = temp->next;
-// 		}	
-// 	}
-// 	// print_numbers(min_number);
-// 	// ft_printf("\n--------\n");
-// 	return (min_number);
-// }
-
-// void	ft_set_index_to_stack(t_stack *stack_a)
-// {
-// 	t_stack	*temp;
-// 	int		index;
-
-// 	index = 0;
-// 	temp = ft_get_next_min(stack_a);
-// 	// 	print_numbers(temp);
-// 	// ft_printf("\n print temp--------\n");
-// 	// ft_printf("\n print temp->number = %i--------\n", temp->number);
-// 	while (temp != NULL)
-// 	{
-// 		temp->index = index++;
-// 		temp = ft_get_next_min(stack_a);
-// 	// 		print_numbers(temp);
-// 	// ft_printf("\n print temp  **--------\n");
-// 	// 	printf("esse eh o index do maior nodo = %i ----\n", index);
-// 	// 		ft_printf("\n print temp->number = %i--------\n", temp->number);
-// 	}
-// }
-
 
 void	ft_set_index_to_stack(t_stack *stack_a, int size_stack)
 {
 	t_stack	*max_number;
 	t_stack	*temp;
 
-	while(size_stack > 0)
+	while (size_stack > 0)
 	{
 		size_stack--;
 		max_number = NULL;
@@ -118,7 +44,6 @@ void	ft_set_index_to_stack(t_stack *stack_a, int size_stack)
 		}
 		if (max_number != NULL)
 			max_number->index = size_stack;
-		
 	}
 }
 
@@ -143,10 +68,10 @@ t_stack	*string_to_stack(t_stack *stack_a, char *argv[])
 	return (stack_a);
 }
 
-t_stack *ft_sort(t_stack *stack_a)
+t_stack	*ft_sort(t_stack *stack_a)
 {
-	int	is_sorted;
-	t_stack *stack_b;
+	int		is_sorted;
+	t_stack	*stack_b;
 
 	stack_b = NULL;
 	ft_set_index_to_stack(stack_a, node_counter(stack_a));
@@ -189,16 +114,5 @@ int	main(int argc, char *argv[])
 	}
 	ft_check_duplicates(stack_a);
 	stack_a = ft_sort(stack_a);
-	// print_numbers(stack_a);
 	ft_free_stack(&stack_a);
 }
-
-	// t_stack *current = stack_a;
-	// int a = 0;
-	// while(current)
-	// {
-		
-	// 	printf("node %i: %i\n", a, current->number);
-	// 	current = current->next;
-	// 	a++;
-	// }
