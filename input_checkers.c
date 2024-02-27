@@ -49,27 +49,44 @@ void	ft_check_duplicates(t_stack *stack)
 	}
 }
 
-void	ft_number_checker(char *arg)
+bool	ft_number_checker(char *arg)
 {
 	int	i;
 
 	i = 0;
+	if (arg[i] == '-' || arg[i] == '+')
+		i++;
 	while (arg[i])
 	{
-		if (arg[i] == ' ')
-			i++;
-		if ((arg[i] == '-') | (arg[i] == '+'))
-			i++;
-		if (ft_isdigit(arg[i]) != true)
-		{
-			ft_printf("Error\n");
-			exit (true);
-		}
-		else if (ft_atoi(&arg[i]) > INT_MAX || ft_atoi(&arg[i]) < INT_MIN)
+		if (ft_isdigit(arg[i]) == false)
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+void	ft_input_checker(int argc, char *argv[])
+{
+	int				i;
+	long long int	tmp_number;
+	char			**array_num;
+
+	i = 0;
+	if (argc == 2)
+		array_num = ft_split(argv[1], ' ');
+	else
+		array_num = argv + 1;
+	while (array_num[i])
+	{
+		tmp_number = ft_atol(array_num[i]);
+		if ((tmp_number < INT_MIN || tmp_number > INT_MAX) || 
+				ft_number_checker(array_num[i]) != true)
 		{
 			ft_printf("Error\n");
 			exit (true);
 		}
 		i++;
 	}
+	if (argc == 2)
+		ft_free_split(array_num);
 }

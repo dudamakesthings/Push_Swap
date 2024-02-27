@@ -28,7 +28,7 @@ typedef struct s_stack
 }	t_stack;
 
 // Input Checkers
-void	ft_number_checker(char *arg);
+void	ft_input_checker(int argc, char *argv[]);
 void	ft_check_duplicates(t_stack *stack);
 bool	ft_stack_sorted(t_stack *stack_a);
 

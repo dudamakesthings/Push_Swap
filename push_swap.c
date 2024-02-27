@@ -102,11 +102,9 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	if (argc == 1 || (argc == 2 && (argv[1][0] == false)))
 		exit(true);
-	while (i < argc)
-		ft_number_checker(argv[i++]);
+	ft_input_checker(argc, argv);
 	if (argc == 2)
 		stack_a = string_to_stack(stack_a, &argv[1]);
-	i = 1;
 	if (argc > 2)
 	{
 		while (i < argc)
