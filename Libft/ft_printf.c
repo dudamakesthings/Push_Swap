@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:48:24 by edribeir      #+#    #+#                 */
-/*   Updated: 2023/11/29 11:58:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 11:57:13 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_format_printf(va_list args, const char *format)
 		counter += ft_putchar_i('%');
 	else if (*format == 'c')
 		counter += ft_putchar_i(va_arg(args, int));
-	else if ((*format == 'd' )| (*format == 'i'))
+	else if ((*format == 'd' ) | (*format == 'i'))
 		counter += ft_putnb_i(va_arg(args, int));
 	else if (*format == 's')
 		counter += ft_putstr_i(va_arg(args, char *));

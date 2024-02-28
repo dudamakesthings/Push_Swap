@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 16:13:43 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 16:13:10 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_set_index_to_stack(t_stack *stack_a, int size_stack)
 		temp = stack_a;
 		while (temp != NULL)
 		{
-			if ((temp->index == false) && ((max_number == NULL)
+			if ((temp->index == -1) && ((max_number == NULL)
 					|| temp->number > max_number->number))
 				max_number = temp;
 			temp = temp->next;

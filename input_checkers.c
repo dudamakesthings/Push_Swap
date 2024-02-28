@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 11:28:49 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 17:15:42 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 12:41:36 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	ft_input_checker(int argc, char *argv[])
 	while (array_num[i])
 	{
 		tmp_number = ft_atol(array_num[i]);
-		if ((tmp_number < INT_MIN || tmp_number > INT_MAX) || 
-				ft_number_checker(array_num[i]) != true)
+		if ((tmp_number < INT_MIN || tmp_number > INT_MAX)
+			|| ft_number_checker(array_num[i]) != true)
 		{
 			ft_printf("Error\n");
 			exit (true);

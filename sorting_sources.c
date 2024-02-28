@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 10:32:12 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 16:16:16 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 15:05:25 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_sorting_4_numbers(t_stack **stack_a, t_stack **stack_b)
 			ft_rotate(stack_a, 'a');
 		nodes--;
 	}
+	ft_sorting_3_numbers(stack_a, 'a');
 	ft_push(stack_b, stack_a, 'a');
 }
 

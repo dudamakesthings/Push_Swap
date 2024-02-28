@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 13:22:50 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/27 16:17:35 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 15:32:10 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ t_stack	*new_node(int number)
 		exit(true);
 	}
 	new_node->number = number;
+	new_node->index = -1;
 	new_node->next = NULL;
 	return (new_node);
 }

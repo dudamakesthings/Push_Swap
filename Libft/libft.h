@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/24 12:31:26 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/05 14:46:36 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/02/28 11:58:16 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void			ft_lstadd_back(t_list **lst_head, t_list *new_node);
 void			ft_lstdelone(t_list *lst_node, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 
 // Character Functions
 int				ft_toupper(int c);
