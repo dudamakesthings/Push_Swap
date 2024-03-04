@@ -6,20 +6,20 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/02 15:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/28 16:13:10 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/04 11:49:10 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_bits(int max_number)
+int	find_bits(int max_index)
 {
 	int	max_bits;
 
 	max_bits = 0;
-	while (max_number > 0)
+	while (max_index > 0)
 	{
-		max_number >>= 1;
+		max_index = max_index >> 1;
 		max_bits++;
 	}
 	return (max_bits);

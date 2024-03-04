@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 10:32:12 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/02/28 15:05:25 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/04 11:13:25 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	ft_radix_sorting(t_stack **stack_a, t_stack **stack_b)
 {
-	int	max_number;
+	int	max_index;
 	int	max_bits;
 	int	i;
 	int	j;
 
-	max_number = ft_find_max_number(*stack_a);
-	max_bits = find_bits(max_number);
+	max_index = ft_find_max_index(*stack_a);
+	max_bits = find_bits(max_index);
 	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j <= max_number)
+		while (j <= max_index)
 		{
 			if (((*stack_a)->index >> i) & 1)
 				ft_rotate(stack_a, 'a');
